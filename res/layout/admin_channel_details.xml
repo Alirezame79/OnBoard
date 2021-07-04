@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/login_background">
+
+    <ImageView
+        android:id="@+id/channel_image_dtl"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <TextView
+        android:id="@+id/channel_name_dtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/channel_image_dtl"
+        android:text="@string/channel_name"
+        android:textColor="@color/palette_white"
+        android:textSize="12pt"
+        android:fontFamily="@font/channe"
+        android:layout_marginTop="30dp"/>
+
+    <View
+        android:id="@+id/separator1"
+        android:layout_width="150dp"
+        android:layout_height="3dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/channel_name_dtl"
+        android:background="@color/palette_gray"
+        android:layout_marginVertical="9dp"/>
+
+    <TextView
+        android:id="@+id/channel_address_dtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator1"
+        android:text="@string/channel_address_equal"
+        android:textSize="6pt"
+        android:textColor="@color/palette_gray"
+        android:layout_marginVertical="9dp"/>
+
+    <View
+        android:id="@+id/separator2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/palette_white"
+        android:layout_marginVertical="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/channel_member"
+        android:fontFamily="@font/channe"
+        android:textColor="@color/palette_white"
+        android:background="@drawable/white_stroke_square_background"
+        android:textSize="12pt"
+        android:padding="15dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/members_for_admin_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

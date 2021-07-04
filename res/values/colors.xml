@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="palette_black">#000000</color>
+    <color name="palette_yellow">#FFC107</color>
+    <color name="palette_gray">#B3FFFFFF</color>
+    <color name="palette_white">#FFFFFF</color>
+
+    <color name="dark_yellow">#BC8E06</color>
+    <color name="dark_red">@android:color/holo_red_dark</color>
+    <color name="dark_green">@android:color/holo_green_dark</color>
+
+</resources>

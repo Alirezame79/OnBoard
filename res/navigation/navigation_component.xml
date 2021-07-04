@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_component"
+    app:startDestination="@id/startingLoadingPageFragment">
+
+    <fragment
+        android:id="@+id/chooseLoginFragment"
+        android:name="com.method.speaker.View.LoginPages.ChooseLoginFragment"
+        android:label="ChooseLoginFragment" >
+        <action
+            android:id="@+id/action_chooseLoginFragment_to_loginUserFragment"
+            app:destination="@id/loginUserFragment"
+            app:enterAnim="@anim/right_enter_window"
+            app:exitAnim="@anim/stay_anim"
+            app:popExitAnim="@anim/right_exit_window" />
+    </fragment>
+    <fragment
+        android:id="@+id/startingLoadingPageFragment"
+        android:name="com.method.speaker.View.StartingLoadingPageFragment"
+        android:label="StartingLoadingPageFragment" >
+        <action
+            android:id="@+id/action_startingLoadingPageFragment_to_chooseLoginFragment"
+            app:destination="@id/chooseLoginFragment"
+            app:enterAnim="@anim/fade_in" />
+        <action
+            android:id="@+id/action_startingLoadingPageFragment_to_memberChannelPageFragment"
+            app:destination="@id/memberChannelPageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_startingLoadingPageFragment_to_adminChannelPageFragment"
+            app:destination="@id/adminChannelPageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginUserFragment"
+        android:name="com.method.speaker.View.LoginPages.LoginUserFragment"
+        android:label="LoginUserFragment" >
+        <action
+            android:id="@+id/action_loginUserFragment_to_findChannelFragment"
+            app:destination="@id/findChannelFragment"
+            app:enterAnim="@anim/right_enter_window"
+            app:exitAnim="@anim/stay_anim"
+            app:popExitAnim="@anim/right_exit_window" />
+    </fragment>
+    <fragment
+        android:id="@+id/findChannelFragment"
+        android:name="com.method.speaker.View.LoginPages.FindChannelFragment"
+        android:label="FindChannelFragment" >
+        <action
+            android:id="@+id/action_findChannelFragment_to_verifyChannelFragment"
+            app:destination="@id/verifyChannelFragment"
+            app:enterAnim="@anim/right_enter_window"
+            app:exitAnim="@anim/stay_anim"
+            app:popExitAnim="@anim/right_exit_window" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyChannelFragment"
+        android:name="com.method.speaker.View.LoginPages.VerifyChannelFragment"
+        android:label="VerifyChannelFragment" >
+        <action
+            android:id="@+id/action_verifyChannelFragment_to_memberChannelPageFragment"
+            app:destination="@id/memberChannelPageFragment"
+            app:enterAnim="@anim/fragment_open_enter" />
+        <action
+            android:id="@+id/action_verifyChannelFragment_to_adminChannelPageFragment"
+            app:destination="@id/adminChannelPageFragment"
+            app:enterAnim="@anim/fragment_open_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberChannelPageFragment"
+        android:name="com.method.speaker.View.MemberChannelPageFragment"
+        android:label="MemberChannelPageFragment" />
+    <fragment
+        android:id="@+id/adminChannelPageFragment"
+        android:name="com.method.speaker.View.AdminChannelPageFragment"
+        android:label="AdminChannelPageFragment" >
+        <action
+            android:id="@+id/action_adminChannelPageFragment_to_adminChannelDetailsFragment"
+            app:destination="@id/adminChannelDetailsFragment"
+            app:enterAnim="@anim/left_enter_window"
+            app:exitAnim="@anim/stay_anim"
+            app:popEnterAnim="@anim/stay_anim"
+            app:popExitAnim="@anim/left_exit_window" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminChannelDetailsFragment"
+        android:name="com.method.speaker.View.AdminChannelDetailsFragment"
+        android:label="AdminChannelDetailsFragment" />
+</navigation>

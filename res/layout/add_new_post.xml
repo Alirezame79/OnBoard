@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_stroke_square_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/add_post_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="@string/add_new_post"
+        android:background="@drawable/white_stroke_square_background"
+        android:textColor="@color/palette_white"
+        android:fontFamily="@font/channe"
+        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="11pt"/>
+
+    <EditText
+        android:id="@+id/new_post_box_edit_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="start"
+        android:background="@drawable/gray_square_background"
+        android:layout_marginHorizontal="20dp"
+        android:minLines="5"
+        android:maxLines="8"
+        android:textColor="@color/palette_black"
+        android:textSize="7pt"
+        android:hint="New Post here..."
+        android:padding="15dp"/>
+
+    <Button
+        android:id="@+id/add_post_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:padding="5dp"
+        android:background="@drawable/yellow_square_background"
+        android:text="@string/add_post_btn_txt"/>
+
+</LinearLayout>

@@ -22,6 +22,7 @@ public class ChooseLoginFragment extends Fragment {
 
     TextView memberLoginBtn;
     TextView adminLoginBtn;
+    TextView registerAdmin;
 
     @Nullable
     @Override
@@ -34,12 +35,9 @@ public class ChooseLoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
         chooseLoginBtn(view);
-
-
     }
 
     private void chooseLoginBtn(final View view) {
-
         memberLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,12 +56,20 @@ public class ChooseLoginFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_chooseLoginFragment_to_loginUserFragment);
             }
         });
-//        sharedPreferences.putUserData(user);
+        registerAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TAG", "user want to register as an admin");
+                // enter register part
+                Navigation.findNavController(view).navigate(R.id.action_chooseLoginFragment_to_registerAdminFragment);
+            }
+        });
     }
 
     private void findViews(View view) {
         memberLoginBtn = view.findViewById(R.id.login_member_btn);
         adminLoginBtn = view.findViewById(R.id.login_admin_btn);
+        registerAdmin = view.findViewById(R.id.register_admin_btn);
     }
 
 }

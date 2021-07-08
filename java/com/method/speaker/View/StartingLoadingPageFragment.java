@@ -105,6 +105,7 @@ public class StartingLoadingPageFragment extends Fragment {
                         if (userPreference.getUserData().isMember()){
                             Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_memberChannelPageFragment);
                         }else {
+
                             Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_adminChannelPageFragment);
                         }
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:id="@+id/notification_card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/notification_title_txt_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="notification topic"
+            android:gravity="center_horizontal"
+            android:textSize="7pt"
+            android:textColor="@color/palette_black"
+            android:padding="3dp" />
+
+        <TextView
+            android:id="@+id/notification_message_txt_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="notification message"
+            android:gravity="center_horizontal"
+            android:textSize="6pt"
+            android:textColor="@color/palette_black"
+            android:padding="3dp"
+            android:layout_margin="2dp"/>
+
+        <LinearLayout
+            android:id="@+id/decision_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:layout_margin="2dp">
+
+            <Button
+                android:id="@+id/agree_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/agree"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="25dp"
+                android:textSize="6pt"
+                android:background="@drawable/yellow_square_background"/>
+
+            <Button
+                android:id="@+id/disagree_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/disagree"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="25dp"
+                android:textSize="6pt"
+                android:background="@drawable/black_stroke_square_background"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

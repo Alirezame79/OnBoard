@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/login_background">
+
+    <TextView
+        android:id="@+id/registration_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/register_admin"
+        android:textColor="@color/palette_yellow"
+        android:fontFamily="@font/channe"
+        android:textSize="14pt"
+        android:layout_margin="50dp"/>
+
+    <LinearLayout
+        android:id="@+id/main_data_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/names_data_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_margin="20dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/first_name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/first_name"
+                android:textSize="7pt"
+                android:backgroundTint="@color/palette_white"
+                android:textColorHint="@color/palette_gray"
+                android:textColor="@color/palette_white"/>
+
+            <EditText
+                android:id="@+id/last_name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/last_name"
+                android:textSize="7pt"
+                android:backgroundTint="@color/palette_white"
+                android:textColorHint="@color/palette_gray"
+                android:textColor="@color/palette_white"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/register_username_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:hint="@string/member_username"
+            android:textSize="7pt"
+            android:backgroundTint="@color/palette_white"
+            android:textColorHint="@color/palette_gray"
+            android:textColor="@color/palette_white"/>
+
+        <EditText
+            android:id="@+id/register_password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:hint="@string/member_password"
+            android:textSize="7pt"
+            android:backgroundTint="@color/palette_white"
+            android:textColorHint="@color/palette_gray"
+            android:textColor="@color/palette_white"/>
+
+        <EditText
+            android:id="@+id/register_channel_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:hint="@string/channel_name"
+            android:textSize="7pt"
+            android:backgroundTint="@color/palette_white"
+            android:textColorHint="@color/palette_gray"
+            android:textColor="@color/palette_white"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/confirm_registration_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/yellow_square_background"
+        android:text="@string/confirm_btn"
+        android:textSize="6pt"
+        android:padding="10dp"
+        android:layout_margin="50dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.method.speaker.Retrofit;
 import com.method.speaker.Data.Admin;
 import com.method.speaker.Data.Channel;
 import com.method.speaker.Data.Member;
+import com.method.speaker.Data.Notification;
 import com.method.speaker.Data.Post;
 
 import java.util.ArrayList;
@@ -34,4 +35,18 @@ public interface MyAPI {
 
     @POST("addPost.php")
     Call<String> sendNewPost(@Query("channel")String channel, @Query("author")String poster, @Query("text")String post, @Query("date")String date);
+
+    @POST("registeringWait.php")
+    Call<Admin> insertToRegisteringList(@Query("firstname")String firstname, @Query("lastname")String lastname,
+                                        @Query("username")String username, @Query("password")String password,
+                                        @Query("channel")String channel);
+
+    @POST("getNotification.php")
+    Call<ArrayList<Notification>> getChannelNotifications(@Query("channel")String channel);
+
+    @POST("addNewAdmin.php")
+    Call<ArrayList<String>> acceptNewAdmin(@Query("username")String username, @Query("channel")String channel, @Query("message")String message);
+
+    @POST("rejectNewAdmin.php")
+    Call<ArrayList<String>> rejectNewAdmin(@Query("username")String username, @Query("channel")String channel, @Query("message")String message);
 }

@@ -5,12 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +36,7 @@ public class AdminChannelDetailsFragment extends Fragment {
     ImageView image;
     TextView name;
     TextView address;
+    ImageView notificationBtn;
 
     public RecyclerView recyclerView;
     public RecyclerView.Adapter adapter;
@@ -50,6 +53,16 @@ public class AdminChannelDetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
         loadParts(view);
+        btnClicked(view);
+    }
+
+    private void btnClicked(final View view) {
+        notificationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_adminChannelDetailsFragment_to_notificationRoomFragment);
+            }
+        });
     }
 
     private void loadParts(final View view) {
@@ -100,5 +113,6 @@ public class AdminChannelDetailsFragment extends Fragment {
         image = view.findViewById(R.id.channel_image_dtl);
         name = view.findViewById(R.id.channel_name_dtl);
         address = view.findViewById(R.id.channel_address_dtl);
+        notificationBtn = view.findViewById(R.id.notification_btn);
     }
 }

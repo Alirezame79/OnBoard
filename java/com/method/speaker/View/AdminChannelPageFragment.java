@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.method.speaker.RecyclerViews.BoardAdapter;
+import com.method.speaker.Adapters.BoardAdapter;
 import com.method.speaker.Data.AuthenticationLiveData;
 import com.method.speaker.Data.Post;
 import com.method.speaker.R;
@@ -36,6 +37,8 @@ public class AdminChannelPageFragment extends Fragment {
     ImageView channelImage;
     Button addPost;
 
+    ProgressBar progressBar;
+
     public RecyclerView recyclerView;
     public RecyclerView.Adapter adapter;
     public RecyclerView.LayoutManager layoutManager;
@@ -50,6 +53,7 @@ public class AdminChannelPageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
+        progressBar.setVisibility(View.VISIBLE);
         loadImage();
         getPosts(view);
         imageClicked(view);
@@ -87,6 +91,8 @@ public class AdminChannelPageFragment extends Fragment {
     }
 
     private void getPosts(final View view) {
+        progressBar.setVisibility(View.VISIBLE);
+
         Global.getMyAPI().getAllPosts(AuthenticationLiveData.getChannel()).enqueue(new Callback<ArrayList<Post>>() {
             @Override
             public void onResponse(Call<ArrayList<Post>> call, Response<ArrayList<Post>> response) {
@@ -109,6 +115,7 @@ public class AdminChannelPageFragment extends Fragment {
         adapter = new BoardAdapter(postArrayList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     private void loadImage() {
@@ -120,5 +127,6 @@ public class AdminChannelPageFragment extends Fragment {
     private void findViews(View view) {
         channelImage = view.findViewById(R.id.channel_image_for_admin);
         addPost = view.findViewById(R.id.add_post_admin);
+        progressBar = view.findViewById(R.id.admin_posts_progress_bar);
     }
 }

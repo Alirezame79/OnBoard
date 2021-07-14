@@ -16,8 +16,8 @@
             app:exitAnim="@anim/stay_anim"
             app:popExitAnim="@anim/right_exit_window" />
         <action
-            android:id="@+id/action_chooseLoginFragment_to_registerAdminFragment"
-            app:destination="@id/registerAdminFragment"
+            android:id="@+id/action_chooseLoginFragment_to_registeringAdminContainer"
+            app:destination="@id/registeringAdminContainer"
             app:enterAnim="@anim/down_enter_window"
             app:exitAnim="@anim/stay_anim"
             app:popExitAnim="@anim/down_exit_window" />
@@ -104,11 +104,20 @@
             app:popExitAnim="@anim/left_exit_window" />
     </fragment>
     <fragment
-        android:id="@+id/registerAdminFragment"
-        android:name="com.method.speaker.View.LoginPages.RegisterAdminFragment"
-        android:label="RegisterAdminFragment" />
-    <fragment
         android:id="@+id/notificationRoomFragment"
         android:name="com.method.speaker.View.NotificationRoomFragment"
         android:label="NotificationRoomFragment" />
+    <activity
+        android:id="@+id/registeringAdminContainer"
+        android:name="com.method.speaker.View.LoginPages.RegisteringAdminContainer"
+        android:label="activity_registering_admin_container"
+        tools:layout="@layout/activity_registering_admin_container" />
+    <fragment
+        android:id="@+id/registerExistingChannelAdminFragment"
+        android:name="com.method.speaker.View.LoginPages.RegisterExistingChannelAdminFragment"
+        android:label="RegisterExistingChannelAdminFragment" />
+    <fragment
+        android:id="@+id/registerNewChannelAdminFragment"
+        android:name="com.method.speaker.View.LoginPages.RegisterNewChannelAdminFragment"
+        android:label="RegisterNewChannelAdminFragment" />
 </navigation>

@@ -12,11 +12,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/register_admin"
+        android:text="@string/registering_existing_channel"
         android:textColor="@color/palette_yellow"
         android:fontFamily="@font/channe"
         android:textSize="14pt"
-        android:layout_margin="50dp"/>
+        android:layout_margin="40dp"/>
 
     <LinearLayout
         android:id="@+id/main_data_container"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_margin="20dp"
+            android:layout_margin="15dp"
             android:layout_weight="1">
 
             <EditText
@@ -62,12 +62,25 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/register_email_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="15dp"
+            android:hint="@string/member_email"
+            android:textSize="7pt"
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@color/palette_white"
+            android:textColorHint="@color/palette_gray"
+            android:textColor="@color/palette_white"/>
+
+        <EditText
             android:id="@+id/register_username_edit_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_margin="20dp"
-            android:hint="@string/member_username"
+            android:layout_margin="15dp"
+            android:hint="@string/username"
             android:textSize="7pt"
             android:backgroundTint="@color/palette_white"
             android:textColorHint="@color/palette_gray"
@@ -78,9 +91,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_margin="20dp"
-            android:hint="@string/member_password"
+            android:layout_margin="15dp"
+            android:hint="@string/password"
             android:textSize="7pt"
+            android:inputType="textPassword"
             android:backgroundTint="@color/palette_white"
             android:textColorHint="@color/palette_gray"
             android:textColor="@color/palette_white"/>
@@ -90,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_margin="20dp"
+            android:layout_margin="15dp"
             android:hint="@string/channel_name"
             android:textSize="7pt"
             android:backgroundTint="@color/palette_white"
@@ -98,6 +112,33 @@
             android:textColor="@color/palette_white"/>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/existing_channel_alert_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_channel_found"
+        android:visibility="invisible"
+        android:textColor="@color/dark_red"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:textSize="5pt"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/confirm_registration_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/exist_registering_progress_bar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:indeterminateDrawable="@drawable/load_progress_bar"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/confirm_registration_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="10dp"/>
 
     <Button
         android:id="@+id/confirm_registration_btn"
@@ -110,6 +151,6 @@
         android:text="@string/confirm_btn"
         android:textSize="6pt"
         android:padding="10dp"
-        android:layout_margin="50dp"/>
+        android:layout_margin="25dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

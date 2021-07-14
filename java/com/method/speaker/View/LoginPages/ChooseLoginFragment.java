@@ -61,7 +61,7 @@ public class ChooseLoginFragment extends Fragment {
             public void onClick(View v) {
                 Log.d("TAG", "user want to register as an admin");
                 // enter register part
-                Navigation.findNavController(view).navigate(R.id.action_chooseLoginFragment_to_registerAdminFragment);
+                Navigation.findNavController(view).navigate(R.id.action_chooseLoginFragment_to_registeringAdminContainer);
             }
         });
     }

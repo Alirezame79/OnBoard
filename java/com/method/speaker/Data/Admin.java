@@ -8,6 +8,8 @@ public class Admin {
     public String firstName;
     @SerializedName("lastname")
     public String lastName;
+    @SerializedName("email")
+    public String email;
     @SerializedName("username")
     public String username;
     @SerializedName("password")
@@ -24,6 +26,14 @@ public class Admin {
                 ", password='" + password + '\'' +
                 ", channel='" + channel + '\'' +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {

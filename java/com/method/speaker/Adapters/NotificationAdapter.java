@@ -1,4 +1,4 @@
-package com.method.speaker.RecyclerViews;
+package com.method.speaker.Adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;

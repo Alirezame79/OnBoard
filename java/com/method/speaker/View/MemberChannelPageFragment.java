@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.method.speaker.Data.AuthenticationLiveData;
 import com.method.speaker.Data.Post;
 import com.method.speaker.R;
-import com.method.speaker.RecyclerViews.BoardAdapter;
+import com.method.speaker.Adapters.BoardAdapter;
 import com.method.speaker.Retrofit.Global;
 import com.squareup.picasso.Picasso;
 
@@ -34,6 +35,7 @@ public class MemberChannelPageFragment extends Fragment {
     ImageView channelImage;
     TextView channelName;
     TextView channelMemberCount;
+    ProgressBar progressBar;
 
     public RecyclerView recyclerView;
     public RecyclerView.Adapter adapter;
@@ -49,6 +51,7 @@ public class MemberChannelPageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
+        progressBar.setVisibility(View.VISIBLE);
         loadTopic();
         getPosts(view);
         refreshClicked(view);
@@ -75,11 +78,13 @@ public class MemberChannelPageFragment extends Fragment {
     }
 
     private void getPosts(final View view) {
+        progressBar.setVisibility(View.INVISIBLE);
         Global.getMyAPI().getAllPosts(AuthenticationLiveData.getChannel()).enqueue(new Callback<ArrayList<Post>>() {
             @Override
             public void onResponse(Call<ArrayList<Post>> call, Response<ArrayList<Post>> response) {
                 Log.d("TAG", "post list get! " + response.body().toString());
                 Collections.reverse(response.body());
+                progressBar.setVisibility(View.INVISIBLE);
                 setRecyclerView(view, response.body());
             }
 
@@ -103,5 +108,6 @@ public class MemberChannelPageFragment extends Fragment {
         channelImage = view.findViewById(R.id.channel_image_topic_member);
         channelName = view.findViewById(R.id.channel_name_txt_view);
         channelMemberCount = view.findViewById(R.id.channel_member_counter_txt_view);
+        progressBar = view.findViewById(R.id.member_posts_progress_bar);
     }
 }

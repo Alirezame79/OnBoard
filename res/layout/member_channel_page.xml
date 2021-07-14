@@ -67,10 +67,26 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ProgressBar
+        android:id="@+id/member_posts_progress_bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/load_progress_bar"
+        app:layout_constraintLeft_toLeftOf="@id/post_recyclerview_member"
+        app:layout_constraintRight_toRightOf="@id/post_recyclerview_member"
+        app:layout_constraintTop_toTopOf="@id/post_recyclerview_member"
+        app:layout_constraintBottom_toBottomOf="@id/post_recyclerview_member" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_recyclerview_member"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbarThumbVertical="@color/palette_gray"
+        android:scrollbarSize="3dp"
         app:layout_constraintTop_toBottomOf="@id/channel_data_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

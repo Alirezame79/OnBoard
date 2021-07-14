@@ -38,8 +38,8 @@ public interface MyAPI {
 
     @POST("registeringWait.php")
     Call<Admin> insertToRegisteringList(@Query("firstname")String firstname, @Query("lastname")String lastname,
-                                        @Query("username")String username, @Query("password")String password,
-                                        @Query("channel")String channel);
+                                        @Query("email")String email, @Query("username")String username,
+                                        @Query("password")String password, @Query("channel")String channel);
 
     @POST("getNotification.php")
     Call<ArrayList<Notification>> getChannelNotifications(@Query("channel")String channel);
@@ -49,4 +49,7 @@ public interface MyAPI {
 
     @POST("rejectNewAdmin.php")
     Call<ArrayList<String>> rejectNewAdmin(@Query("username")String username, @Query("channel")String channel, @Query("message")String message);
+
+    @POST("uploadImage.php")
+    Call<String> uploadImage(@Query("name")String name, @Query("image")String image);
 }

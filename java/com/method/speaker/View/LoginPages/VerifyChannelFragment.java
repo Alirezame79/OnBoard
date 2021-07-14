@@ -1,6 +1,8 @@
 package com.method.speaker.View.LoginPages;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,26 @@ public class VerifyChannelFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
         finishClicked(view);
+        disappearAlert();
+    }
+
+    private void disappearAlert() {
+        channelAddress.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                alert.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void finishClicked(final View view) {

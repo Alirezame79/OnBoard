@@ -25,15 +25,26 @@
         android:translationZ="15dp"
         android:layout_margin="10dp"/>
 
+    <ProgressBar
+        android:id="@+id/admin_posts_progress_bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/load_progress_bar"
+        app:layout_constraintLeft_toLeftOf="@id/post_recyclerview_admin"
+        app:layout_constraintRight_toRightOf="@id/post_recyclerview_admin"
+        app:layout_constraintTop_toTopOf="@id/post_recyclerview_admin"
+        app:layout_constraintBottom_toBottomOf="@id/post_recyclerview_admin" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_recyclerview_admin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="10dp"
-        android:background="@drawable/gray_square_background"
         app:layout_constraintTop_toBottomOf="@id/channel_image_for_admin"
-        app:layout_constraintBottom_toTopOf="@id/add_post_admin"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

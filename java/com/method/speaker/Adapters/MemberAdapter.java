@@ -1,4 +1,4 @@
-package com.method.speaker.RecyclerViews;
+package com.method.speaker.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.method.speaker.Data.Post;
 import com.method.speaker.R;
 
 import java.util.List;

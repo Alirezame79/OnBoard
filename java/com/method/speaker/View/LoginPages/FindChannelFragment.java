@@ -1,6 +1,8 @@
 package com.method.speaker.View.LoginPages;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,10 +46,30 @@ public class FindChannelFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
         nextBtnClicked(view);
+        disappearAlert();
+    }
+
+    private void disappearAlert() {
+        channelName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                alert.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     private void nextBtnClicked(final View view) {
-        Log.d("TAGG", AuthenticationLiveData.isMember() + AuthenticationLiveData.getUsername()
+        Log.d("TAF", AuthenticationLiveData.isMember() + AuthenticationLiveData.getUsername()
                 + AuthenticationLiveData.getPassword() + AuthenticationLiveData.getChannel());
 
         next.setOnClickListener(new View.OnClickListener() {

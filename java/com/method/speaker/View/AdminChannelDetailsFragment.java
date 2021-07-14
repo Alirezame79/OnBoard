@@ -5,8 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,8 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.method.speaker.Data.AuthenticationLiveData;
 import com.method.speaker.Data.Member;
 import com.method.speaker.R;
-import com.method.speaker.RecyclerViews.BoardAdapter;
-import com.method.speaker.RecyclerViews.MemberAdapter;
+import com.method.speaker.Adapters.MemberAdapter;
 import com.method.speaker.Retrofit.Global;
 import com.squareup.picasso.Picasso;
 
@@ -37,6 +36,7 @@ public class AdminChannelDetailsFragment extends Fragment {
     TextView name;
     TextView address;
     ImageView notificationBtn;
+    ProgressBar progressBar;
 
     public RecyclerView recyclerView;
     public RecyclerView.Adapter adapter;
@@ -66,6 +66,8 @@ public class AdminChannelDetailsFragment extends Fragment {
     }
 
     private void loadParts(final View view) {
+        progressBar.setVisibility(View.VISIBLE);
+
         // load image
         Picasso.get().load(AuthenticationLiveData.getImageUrl()).resize(250, 250).centerCrop()
                 .transform(new CropCircleTransformation()).into(image);
@@ -89,6 +91,7 @@ public class AdminChannelDetailsFragment extends Fragment {
                 for (Member x: response.body()){
                     members.add(x.getUsername());
                 }
+                progressBar.setVisibility(View.INVISIBLE);
                 setRecyclerView(view, members);
             }
 
@@ -114,5 +117,6 @@ public class AdminChannelDetailsFragment extends Fragment {
         name = view.findViewById(R.id.channel_name_dtl);
         address = view.findViewById(R.id.channel_address_dtl);
         notificationBtn = view.findViewById(R.id.notification_btn);
+        progressBar = view.findViewById(R.id.admin_detail_progress_bar);
     }
 }

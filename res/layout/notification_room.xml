@@ -18,6 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="50dp"/>
 
+    <ProgressBar
+        android:id="@+id/admin_notification_progress_bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/load_progress_bar"
+        app:layout_constraintLeft_toLeftOf="@id/notification_recyclerview"
+        app:layout_constraintRight_toRightOf="@id/notification_recyclerview"
+        app:layout_constraintTop_toTopOf="@id/notification_recyclerview"
+        app:layout_constraintBottom_toBottomOf="@id/notification_recyclerview" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notification_recyclerview"
         android:layout_width="match_parent"

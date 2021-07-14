@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,8 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.method.speaker.Data.AuthenticationLiveData;
 import com.method.speaker.Data.Notification;
 import com.method.speaker.R;
-import com.method.speaker.RecyclerViews.MemberAdapter;
-import com.method.speaker.RecyclerViews.NotificationAdapter;
+import com.method.speaker.Adapters.NotificationAdapter;
 import com.method.speaker.Retrofit.Global;
 
 import java.util.ArrayList;
@@ -32,6 +32,8 @@ public class NotificationRoomFragment extends Fragment {
     public RecyclerView.Adapter adapter;
     public RecyclerView.LayoutManager layoutManager;
 
+    ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,16 +43,20 @@ public class NotificationRoomFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        findViews(view);
         loadNotifications(view);
     }
 
     private void loadNotifications(final View view) {
+        progressBar.setVisibility(View.VISIBLE);
+
         Global.getMyAPI().getChannelNotifications(AuthenticationLiveData.getChannel() + getString(R.string.access_notification_server)).enqueue(new Callback<ArrayList<Notification>>() {
             @Override
             public void onResponse(Call<ArrayList<Notification>> call, Response<ArrayList<Notification>> response) {
                 if (response.body() != null) {
                     Collections.reverse(response.body());
                 }
+                progressBar.setVisibility(View.INVISIBLE);
                 setRecyclerView(view, response.body());
             }
 
@@ -68,5 +74,9 @@ public class NotificationRoomFragment extends Fragment {
         adapter = new NotificationAdapter(arrayList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void findViews(View view) {
+        progressBar = view.findViewById(R.id.admin_notification_progress_bar);
     }
 }

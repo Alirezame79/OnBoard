@@ -1,4 +1,4 @@
-package com.method.speaker.RecyclerViews;
+package com.method.speaker.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,10 +30,10 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.poster.setText(items.get(position).getPoster());
+        holder.poster.setText(items.get(position).getPoster() + ":");
         holder.post.setText(items.get(position).getPost());
         holder.detail.setText(items.get(position).getDetail());
-        holder.likes.setText(String.valueOf(items.get(position).getLikes()));
+//        holder.likes.setText(String.valueOf(items.get(position).getLikes()));
     }
 
     @Override
@@ -46,14 +46,14 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
         public TextView poster;
         public TextView post;
         public TextView detail;
-        public TextView likes;
+//        public TextView likes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             poster = itemView.findViewById(R.id.poster_data);
             post = itemView.findViewById(R.id.post_txt_data);
             detail = itemView.findViewById(R.id.post_detail_data);
-            likes = itemView.findViewById(R.id.likes_counter);
+//            likes = itemView.findViewById(R.id.likes_counter);
         }
     }
 }

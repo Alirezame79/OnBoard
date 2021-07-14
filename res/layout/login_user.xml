@@ -69,6 +69,7 @@
             android:padding="13dp"
             android:maxLines="1"
             android:layout_margin="7dp"
+            android:inputType="textPassword"
             android:backgroundTint="@color/palette_white"
             android:textSize="7pt"
             android:gravity="start"

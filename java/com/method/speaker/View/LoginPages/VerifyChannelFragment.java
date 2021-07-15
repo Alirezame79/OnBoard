@@ -123,7 +123,7 @@ public class VerifyChannelFragment extends Fragment {
                     // correct address
                     if (AuthenticationLiveData.isMember()){
                         progressBar.setVisibility(View.INVISIBLE);
-                        Navigation.findNavController(view).navigate(R.id.action_verifyChannelFragment_to_memberChannelPageFragment);
+                        Navigation.findNavController(view).navigate(R.id.action_verifyChannelFragment_to_memberChannelListFragment);
                     }else {
                         progressBar.setVisibility(View.INVISIBLE);
                         Navigation.findNavController(view).navigate(R.id.action_verifyChannelFragment_to_adminChannelPageFragment);

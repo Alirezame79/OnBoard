@@ -37,6 +37,10 @@ public class MemberChannelPageFragment extends Fragment {
     TextView channelMemberCount;
     ProgressBar progressBar;
 
+    String channel;
+    String count;
+    String url;
+
     public RecyclerView recyclerView;
     public RecyclerView.Adapter adapter;
     public RecyclerView.LayoutManager layoutManager;
@@ -52,6 +56,9 @@ public class MemberChannelPageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         findViews(view);
         progressBar.setVisibility(View.VISIBLE);
+        channel = getArguments().getString("channel");
+        count = getArguments().getString("count");
+        url = getArguments().getString("image");
         loadTopic();
         getPosts(view);
         refreshClicked(view);
@@ -68,18 +75,18 @@ public class MemberChannelPageFragment extends Fragment {
     }
 
     private void loadTopic() {
-        Picasso.get().load(AuthenticationLiveData.getImageUrl()).resize(250, 250).centerCrop()
+        Picasso.get().load(url).resize(250, 250).centerCrop()
                 .transform(new CropCircleTransformation()).into(channelImage);
 
-        channelName.setText(AuthenticationLiveData.getChannel());
+        channelName.setText(channel);
 
-        channelMemberCount.setText(AuthenticationLiveData.getMemberCount() + "\t" + getString(R.string.channel_member_counter_topic));
+        channelMemberCount.setText(count + "\t" + getString(R.string.channel_member_counter_topic));
 
     }
 
     private void getPosts(final View view) {
-        progressBar.setVisibility(View.INVISIBLE);
-        Global.getMyAPI().getAllPosts(AuthenticationLiveData.getChannel()).enqueue(new Callback<ArrayList<Post>>() {
+        progressBar.setVisibility(View.VISIBLE);
+        Global.getMyAPI().getAllPosts(channel).enqueue(new Callback<ArrayList<Post>>() {
             @Override
             public void onResponse(Call<ArrayList<Post>> call, Response<ArrayList<Post>> response) {
                 Log.d("TAG", "post list get! " + response.body().toString());

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OnBoard\nv. 1.0.2</string>
+    <string name="app_name">OnBoard\nv. 1.0.3</string>
 
     <string name="loading">Loading…</string>
     <string name="welcome">WELCOME</string>
@@ -35,6 +35,7 @@
     <string name="no_access">No access to this channel</string>
     <string name="no_admin">There is NO admin with this data!</string>
     <string name="channel_name_topic">Board name</string>
+    <string name="member_channel_list_topic_txt">Board List</string>
     <string name="channel_member_counter_topic"> viewer</string>
     <string name="channel_member">Viewers</string>
     <string name="add_new_post">New Post</string>

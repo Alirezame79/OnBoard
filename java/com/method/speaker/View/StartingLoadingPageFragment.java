@@ -103,7 +103,7 @@ public class StartingLoadingPageFragment extends Fragment {
 
                         // Open channel after some seconds...
                         if (userPreference.getUserData().isMember()){
-                            Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_memberChannelPageFragment);
+                            Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_memberChannelListFragment);
                         }else {
 
                             Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_adminChannelPageFragment);

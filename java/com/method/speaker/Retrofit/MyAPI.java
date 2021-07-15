@@ -52,4 +52,7 @@ public interface MyAPI {
 
     @POST("uploadImage.php")
     Call<String> uploadImage(@Query("name")String name, @Query("image")String image);
+
+    @POST("getMemberChannels.php")
+    Call<ArrayList<Member>> getMemberChannelList(@Query("username")String username);
 }

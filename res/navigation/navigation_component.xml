@@ -31,15 +31,13 @@
             app:destination="@id/chooseLoginFragment"
             app:enterAnim="@anim/fade_in" />
         <action
-            android:id="@+id/action_startingLoadingPageFragment_to_memberChannelPageFragment"
-            app:destination="@id/memberChannelPageFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
-        <action
             android:id="@+id/action_startingLoadingPageFragment_to_adminChannelPageFragment"
             app:destination="@id/adminChannelPageFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_startingLoadingPageFragment_to_memberChannelListFragment"
+            app:destination="@id/memberChannelListFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginUserFragment"
@@ -68,13 +66,12 @@
         android:name="com.method.speaker.View.LoginPages.VerifyChannelFragment"
         android:label="VerifyChannelFragment" >
         <action
-            android:id="@+id/action_verifyChannelFragment_to_memberChannelPageFragment"
-            app:destination="@id/memberChannelPageFragment"
-            app:enterAnim="@anim/fragment_open_enter" />
-        <action
             android:id="@+id/action_verifyChannelFragment_to_adminChannelPageFragment"
             app:destination="@id/adminChannelPageFragment"
             app:enterAnim="@anim/fragment_open_enter" />
+        <action
+            android:id="@+id/action_verifyChannelFragment_to_memberChannelListFragment"
+            app:destination="@id/memberChannelListFragment" />
     </fragment>
     <fragment
         android:id="@+id/memberChannelPageFragment"
@@ -120,4 +117,12 @@
         android:id="@+id/registerNewChannelAdminFragment"
         android:name="com.method.speaker.View.LoginPages.RegisterNewChannelAdminFragment"
         android:label="RegisterNewChannelAdminFragment" />
+    <fragment
+        android:id="@+id/memberChannelListFragment"
+        android:name="com.method.speaker.View.MemberChannelListFragment"
+        android:label="MemberChannelListFragment" >
+        <action
+            android:id="@+id/action_memberChannelListFragment_to_memberChannelPageFragment"
+            app:destination="@id/memberChannelPageFragment" />
+    </fragment>
 </navigation>

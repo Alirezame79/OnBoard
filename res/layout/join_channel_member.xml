@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.2"
-        android:text="@string/login"
+        android:text="@string/join_channel_tab_layout"
         android:fontFamily="@font/channe"
         android:textColor="@color/palette_yellow"
         android:padding="5dp"
@@ -37,7 +37,7 @@
             android:id="@+id/enter_member_data_txt_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_member_data"
+            android:text="@string/enter_channel_data"
             android:textColor="@color/palette_gray"
             android:padding="5dp"
             android:layout_marginVertical="15dp"
@@ -45,11 +45,11 @@
             android:gravity="center"/>
 
         <EditText
-            android:id="@+id/enter_username_edit_txt"
+            android:id="@+id/enter_channel_name_edit_txt"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:textColor="@color/palette_white"
-            android:hint="@string/member_username"
+            android:hint="@string/channel_name"
             android:textColorHint="@color/palette_gray"
             android:padding="13dp"
             android:layout_margin="7dp"
@@ -60,10 +60,10 @@
             android:layout_gravity="center_horizontal"/>
 
         <EditText
-            android:id="@+id/enter_password_edit_txt"
+            android:id="@+id/enter_channel_address_edit_txt"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:hint="@string/member_password"
+            android:hint="@string/channel_address"
             android:textColorHint="@color/palette_gray"
             android:textColor="@color/palette_white"
             android:padding="13dp"
@@ -76,7 +76,7 @@
             android:layout_gravity="center_horizontal"/>
 
         <ProgressBar
-            android:id="@+id/login_progress_bar"
+            android:id="@+id/join_progress_bar"
             android:layout_width="20dp"
             android:layout_height="20dp"
             style="@style/Widget.AppCompat.ProgressBar"
@@ -85,20 +85,20 @@
             android:visibility="invisible" />
 
         <Button
-            android:id="@+id/login_btn"
+            android:id="@+id/join_btn"
             android:layout_width="120dp"
             android:layout_height="40dp"
-            android:text="@string/login"
+            android:text="@string/join"
             android:background="@drawable/yellow_square_background"
             android:textColor="@color/palette_white"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp" />
 
         <TextView
-            android:id="@+id/login_alert_txt"
+            android:id="@+id/join_alert_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_admin"
+            android:text="@string/no_channel_found"
             android:visibility="invisible"
             android:textColor="@color/dark_red"
             android:padding="5dp"
@@ -107,18 +107,5 @@
             android:gravity="center"/>
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/app_name_txt_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="@string/app_name"
-        android:textColor="@color/palette_gray"
-        android:gravity="center"
-        android:padding="5dp"
-        android:layout_marginBottom="5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

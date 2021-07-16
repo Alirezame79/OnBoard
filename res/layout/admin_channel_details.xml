@@ -83,7 +83,8 @@
         android:textColor="@color/palette_white"
         android:background="@drawable/white_stroke_square_background"
         android:textSize="12pt"
-        android:padding="15dp"/>
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"/>
 
     <ProgressBar
         android:id="@+id/admin_detail_progress_bar"

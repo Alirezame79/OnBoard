@@ -19,13 +19,19 @@ public interface MyAPI {
     Call<String> getAppSituation();
 
     @POST("memberUserPass.php")
-    Call<ArrayList<Member>> getMemberChannelName(@Query("username") String username, @Query("password") String password);
+    Call<ArrayList<Member>> getMemberChannelName(@Query("username") String username);
+
+    @POST("addMember.php")
+    Call<ArrayList<Member>> addMember(@Query("username")String username, @Query("password")String password);
 
     @POST("adminUserPass.php")
     Call<ArrayList<Admin>> getAdminChannelAccess(@Query("username")String username, @Query("password")String password);
 
     @POST("getChannelInfo.php")
     Call<ArrayList<Channel>> getChannel(@Query("name")String name);
+
+    @POST("checkChannel.php")
+    Call<ArrayList<Channel>> checkChannel(@Query("channel")String channel, @Query("address")String address);
 
     @POST("getPostList.php")
     Call<ArrayList<Post>> getAllPosts(@Query("channel")String channel);
@@ -55,4 +61,7 @@ public interface MyAPI {
 
     @POST("getMemberChannels.php")
     Call<ArrayList<Member>> getMemberChannelList(@Query("username")String username);
+
+    @POST("memberJoinChannel.php")
+    Call<ArrayList<Member>> joinChannel(@Query("username")String username, @Query("password")String password, @Query("channel")String channel);
 }

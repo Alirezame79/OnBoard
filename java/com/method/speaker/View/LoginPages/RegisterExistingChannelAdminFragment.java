@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.method.speaker.Data.Admin;
@@ -160,8 +161,7 @@ public class RegisterExistingChannelAdminFragment extends Fragment {
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
 
-                if (firstName.getText().toString().equals("") || lastName.getText().toString().equals("") ||
-                        username.getText().toString().equals("") || password.getText().toString().equals("") ||
+                if (username.getText().toString().equals("") || password.getText().toString().equals("") ||
                         email.getText().toString().equals("") || channel.getText().toString().equals("")){
                     return;
                 }
@@ -185,12 +185,18 @@ public class RegisterExistingChannelAdminFragment extends Fragment {
                                         public void onResponse(Call<Admin> call, Response<Admin> response) {
                                             Log.d("TAG", "registering data sent!");
                                             progressBar.setVisibility(View.INVISIBLE);
+                                            alert.setVisibility(View.VISIBLE);
+                                            alert.setText(getString(R.string.register_done));
+                                            alert.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_green));
                                         }
 
                                         @Override
                                         public void onFailure(Call<Admin> call, Throwable t) {
                                             Log.d("TAG", "sth went wrong!");
                                             progressBar.setVisibility(View.INVISIBLE);
+                                            alert.setVisibility(View.VISIBLE);
+                                            alert.setText(getString(R.string.register_done));
+                                            alert.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_green));
                                         }
                                     });
                                 }
@@ -198,6 +204,8 @@ public class RegisterExistingChannelAdminFragment extends Fragment {
                             builder.setNegativeButton(getString(R.string.registering_negative), null).create().show();
                         }else {
                             Log.d("TAG", "There is no channel!");
+                            alert.setText(getString(R.string.no_channel_found));
+                            alert.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_red));
                             alert.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.INVISIBLE);
                         }

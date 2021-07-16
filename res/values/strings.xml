@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OnBoard\nv. 1.0.3</string>
+    <string name="app_name">OnBoard\nv. 1.0.4</string>
 
     <string name="loading">Loading…</string>
     <string name="welcome">WELCOME</string>
@@ -9,12 +9,16 @@
     <string name="enter_channel_name">Enter Board name</string>
     <string name="enter_channel_address">Enter Board address</string>
     <string name="enter_member_data">Enter your username &amp; password</string>
+    <string name="enter_channel_data">Enter Board\'s name &amp; address</string>
     <string name="login_member">Login as Viewer</string>
     <string name="login_admin">Login as Admin</string>
     <string name="register_admin"><u>Register Admin</u></string>
     <string name="registering_existing_channel">Join Board</string>
     <string name="registering_new_channel">Make Board</string>
     <string name="no_channel_found">No Board Found!</string>
+    <string name="register_done">Successfully Done!</string>
+    <string name="member_join">Viewer Join successfully!</string>
+    <string name="member_join_before">Viewer Join this board before!</string>
     <string name="registering">Registering</string>
     <string name="channel_name">Board name…</string>
     <string name="channel_address">Address…</string>
@@ -23,17 +27,19 @@
     <string name="finish_btn">Finish</string>
     <string name="confirm_btn">Confirm</string>
     <string name="login">Login</string>
+    <string name="join">Join</string>
     <string name="member_username">Username…</string>
     <string name="member_password">Password…</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="member_email">E-mail</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
+    <string name="first_name">First name (Optional)</string>
+    <string name="last_name">Last name (Optional)</string>
     <string name="wrong_data">Wrong data</string>
     <string name="wrong_address">Wrong Address</string>
     <string name="no_access">No access to this channel</string>
     <string name="no_admin">There is NO admin with this data!</string>
+    <string name="wrong_password">There is a User with this username BUT password is wrong!</string>
     <string name="channel_name_topic">Board name</string>
     <string name="member_channel_list_topic_txt">Board List</string>
     <string name="channel_member_counter_topic"> viewer</string>
@@ -41,6 +47,7 @@
     <string name="add_new_post">New Post</string>
     <string name="add_post_btn_txt">Add</string>
     <string name="notification_topic">Notifications</string>
+    <string name="notification_alert">No notification found!</string>
     <string name="agree">Agree</string>
     <string name="disagree">Disagree</string>
     <string name="access_notification_server">_notif</string>

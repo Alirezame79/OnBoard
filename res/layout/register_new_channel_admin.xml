@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@id/confirm_registration_btn"
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
-        android:layout_marginVertical="5dp"
+        android:layout_marginVertical="20dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -44,9 +44,9 @@
                 android:id="@+id/first_name_edit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:hint="@string/first_name"
                 android:textSize="6pt"
+                android:layout_weight="1"
                 android:backgroundTint="@color/palette_white"
                 android:textColorHint="@color/palette_gray"
                 android:textColor="@color/palette_white"/>
@@ -55,9 +55,9 @@
                 android:id="@+id/last_name_edit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:hint="@string/last_name"
                 android:textSize="6pt"
+                android:layout_weight="1"
                 android:backgroundTint="@color/palette_white"
                 android:textColorHint="@color/palette_gray"
                 android:textColor="@color/palette_white"/>
@@ -72,6 +72,7 @@
             android:layout_margin="10dp"
             android:hint="@string/member_email"
             android:textSize="6pt"
+            android:inputType="textEmailAddress"
             android:backgroundTint="@color/palette_white"
             android:textColorHint="@color/palette_gray"
             android:textColor="@color/palette_white"/>
@@ -96,6 +97,7 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:hint="@string/password"
+            android:inputType="textPassword"
             android:textSize="6pt"
             android:backgroundTint="@color/palette_white"
             android:textColorHint="@color/palette_gray"

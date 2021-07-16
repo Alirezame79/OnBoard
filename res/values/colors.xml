@@ -8,6 +8,7 @@
     <color name="palette_yellow">#FFC107</color>
     <color name="palette_gray">#B3FFFFFF</color>
     <color name="palette_white">#FFFFFF</color>
+    <color name="palette_blue">#00020C</color>
 
     <color name="dark_yellow">#BC8E06</color>
     <color name="dark_red">@android:color/holo_red_dark</color>

@@ -54,6 +54,9 @@ public class AddNewPostDialog extends Dialog {
             public void onClick(View v) {
                 // post text
                 String post = text.getText().toString();
+                if (post.equals("")){
+                    return;
+                }
 
                 // post date
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");

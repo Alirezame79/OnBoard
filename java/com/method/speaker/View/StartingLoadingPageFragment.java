@@ -77,7 +77,7 @@ public class StartingLoadingPageFragment extends Fragment {
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     Log.d("TAG", "fail" + t);
-                    showAlertDialog(access);
+                    showAlertDialog(internet);
                 }
             });
 
@@ -90,37 +90,37 @@ public class StartingLoadingPageFragment extends Fragment {
             // Go to login pages
             Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_chooseLoginFragment);
         }else {
-            Global.getMyAPI().getChannel(userPreference.getUserData().getChannel()).enqueue(new Callback<ArrayList<Channel>>() {
-                @Override
-                public void onResponse(Call<ArrayList<Channel>> call, Response<ArrayList<Channel>> response) {
-                    if (response.body().size() > 0){
-                        Channel channel = response.body().get(0);
-                        AuthenticationLiveData.setChannel(channel.getName());
-                        AuthenticationLiveData.setAddress(channel.getAddress());
-                        AuthenticationLiveData.setMemberCount(channel.getMemberCount());
-                        AuthenticationLiveData.setImageUrl(channel.getImageUrl());
-                        Log.d("TAF", "receive channel " + AuthenticationLiveData.getChannel() + AuthenticationLiveData.getAddress());
-
-                        // Open channel after some seconds...
-                        if (userPreference.getUserData().isMember()){
-                            Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_memberChannelListFragment);
-                        }else {
+            // Open channel after some seconds...
+            if (userPreference.getUserData().isMember()){
+                Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_memberChannelListFragment);
+            }else {
+                Global.getMyAPI().getChannel(userPreference.getUserData().getChannel()).enqueue(new Callback<ArrayList<Channel>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Channel>> call, Response<ArrayList<Channel>> response) {
+                        if (response.body().size() > 0){
+                            Channel channel = response.body().get(0);
+                            AuthenticationLiveData.setChannel(channel.getName());
+                            AuthenticationLiveData.setAddress(channel.getAddress());
+                            AuthenticationLiveData.setMemberCount(channel.getMemberCount());
+                            AuthenticationLiveData.setImageUrl(channel.getImageUrl());
+                            Log.d("TAF", "receive channel " + AuthenticationLiveData.getChannel() + AuthenticationLiveData.getAddress() +
+                                    AuthenticationLiveData.getMemberCount() + AuthenticationLiveData.getImageUrl());
 
                             Navigation.findNavController(view).navigate(R.id.action_startingLoadingPageFragment_to_adminChannelPageFragment);
+
+                        }else {
+                            Toast.makeText(getContext(), "There is no Board with this data!", Toast.LENGTH_SHORT).show();
                         }
 
-                    }else {
-                        Toast.makeText(getContext(), "There is no Board with this data!", Toast.LENGTH_SHORT).show();
                     }
 
-                }
+                    @Override
+                    public void onFailure(Call<ArrayList<Channel>> call, Throwable t) {
 
-                @Override
-                public void onFailure(Call<ArrayList<Channel>> call, Throwable t) {
-
-                    Log.d("TAG", "sth went wrong!");
-                }
-            });
+                        Log.d("TAG", "sth went wrong!");
+                    }
+                });
+            }
         }
     }
 

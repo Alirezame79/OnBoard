@@ -5,14 +5,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.method.speaker.Adapters.MemberChannelListAdapter;
 import com.method.speaker.Data.Channel;
 import com.method.speaker.Data.Member;
@@ -29,12 +33,15 @@ import retrofit2.Response;
 public class MemberChannelListFragment extends Fragment {
 
     ProgressBar progressBar;
+    TextView noChannel;
+    Button join;
 
     public RecyclerView recyclerView;
     public RecyclerView.Adapter adapter;
     public RecyclerView.LayoutManager layoutManager;
 
     public ArrayList<Channel> channelList = new ArrayList<>();
+    public ArrayList<String> joinChannel = new ArrayList<>();
 
     @Nullable
     @Override
@@ -45,9 +52,27 @@ public class MemberChannelListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        progressBar = view.findViewById(R.id.member_channel_list_progress_bar);
+        findViews(view);
         progressBar.setVisibility(View.VISIBLE);
         receiveChannels(view);
+        joinChannel(view);
+    }
+
+    private void joinChannel(final View view){
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putStringArrayList("channels", joinChannel);
+                Navigation.findNavController(view).navigate(R.id.action_memberChannelListFragment_to_joinChannelMemberFragment, bundle);
+            }
+        });
+    }
+
+    private void findViews(View view) {
+        progressBar = view.findViewById(R.id.member_channel_list_progress_bar);
+        noChannel = view.findViewById(R.id.no_channel_found_txt);
+        join = view.findViewById(R.id.join_channel_btn);
     }
 
     private void receiveChannels(final View view) {
@@ -62,9 +87,11 @@ public class MemberChannelListFragment extends Fragment {
 
                 if (response.body().size() > 0) {
                     for (final Member member : response.body()) {
+                        joinChannel.add(member.getChannel());
                         Global.getMyAPI().getChannel(member.getChannel()).enqueue(new Callback<ArrayList<Channel>>() {
                             @Override
                             public void onResponse(Call<ArrayList<Channel>> call, Response<ArrayList<Channel>> response1) {
+                                noChannel.setVisibility(View.INVISIBLE);
                                 progressBar.setVisibility(View.VISIBLE);
                                 Log.d("TAF", "response4" + member.getChannel());
                                 Log.d("TAF", "response4" + response1.body());
@@ -80,6 +107,9 @@ public class MemberChannelListFragment extends Fragment {
                             }
                         });
                     }
+                }else {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    noChannel.setVisibility(View.VISIBLE);
                 }
             }
 

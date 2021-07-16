@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class NotificationRoomFragment extends Fragment {
     public RecyclerView.LayoutManager layoutManager;
 
     ProgressBar progressBar;
+    TextView alert;
 
     @Nullable
     @Override
@@ -53,6 +55,9 @@ public class NotificationRoomFragment extends Fragment {
         Global.getMyAPI().getChannelNotifications(AuthenticationLiveData.getChannel() + getString(R.string.access_notification_server)).enqueue(new Callback<ArrayList<Notification>>() {
             @Override
             public void onResponse(Call<ArrayList<Notification>> call, Response<ArrayList<Notification>> response) {
+                if (response.body().size() == 0){
+                    alert.setVisibility(View.VISIBLE);
+                }
                 if (response.body() != null) {
                     Collections.reverse(response.body());
                 }
@@ -78,5 +83,6 @@ public class NotificationRoomFragment extends Fragment {
 
     private void findViews(View view) {
         progressBar = view.findViewById(R.id.admin_notification_progress_bar);
+        alert = view.findViewById(R.id.alert_notification);
     }
 }

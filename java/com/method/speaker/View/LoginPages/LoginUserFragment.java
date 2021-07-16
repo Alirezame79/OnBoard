@@ -104,25 +104,63 @@ public class LoginUserFragment extends Fragment {
                 if (AuthenticationLiveData.isMember()){
                     // user is member
                     // we have to add member data to server
-                    Global.getMyAPI().getMemberChannelName(usernameTxt, passwordTxt).enqueue(new Callback<ArrayList<Member>>() {
+                    Global.getMyAPI().getMemberChannelName(usernameTxt).enqueue(new Callback<ArrayList<Member>>() {
                         @Override
                         public void onResponse(Call<ArrayList<Member>> call, Response<ArrayList<Member>> response) {
                             if (response.body().size() > 0){
                                 // member has a channel and have to login to that particular channel
                                 Log.d("TAG", "member has channel " + response.body().get(0).toString());
-                                Member member = response.body().get(0);
-                                AuthenticationLiveData.setUsername(member.getUsername());
-                                AuthenticationLiveData.setPassword(member.getPassword());
-                                AuthenticationLiveData.setChannel(member.getChannel());
+
+                                if (response.body().get(0).getPassword().equals(passwordTxt)){
+                                    Member member = response.body().get(0);
+                                    AuthenticationLiveData.setUsername(member.getUsername());
+                                    AuthenticationLiveData.setPassword(member.getPassword());
+
+                                    User user = new User();
+                                    user.setMember(AuthenticationLiveData.isMember());
+                                    user.setUsername(AuthenticationLiveData.getUsername());
+                                    user.setPassword(AuthenticationLiveData.getPassword());
+
+                                    UserPreference userPreference = new UserPreference(getContext());
+                                    userPreference.putUserData(user);
+                                }else {
+                                    alert.setText(getString(R.string.wrong_password));
+                                    alert.setVisibility(View.VISIBLE);
+                                    progressBar.setVisibility(View.INVISIBLE);
+
+                                    return;
+                                }
+
                             }else {
                                 Log.d("TAG", "member has NO channel");
                                 // member has no channel yet
+
+                                Global.getMyAPI().addMember(usernameTxt, passwordTxt).enqueue(new Callback<ArrayList<Member>>() {
+                                    @Override
+                                    public void onResponse(Call<ArrayList<Member>> call, Response<ArrayList<Member>> response) {
+                                        Log.d("TAG", "member has added");
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<ArrayList<Member>> call, Throwable t) {
+                                        Log.d("TAG", "member has added");
+                                    }
+                                });
+
                                 AuthenticationLiveData.setUsername(usernameTxt);
                                 AuthenticationLiveData.setPassword(passwordTxt);
-                                AuthenticationLiveData.setChannel("");
+
+                                User user = new User();
+                                user.setMember(AuthenticationLiveData.isMember());
+                                user.setUsername(AuthenticationLiveData.getUsername());
+                                user.setPassword(AuthenticationLiveData.getPassword());
+
+                                UserPreference userPreference = new UserPreference(getContext());
+                                userPreference.putUserData(user);
+
                             }
                             progressBar.setVisibility(View.INVISIBLE);
-                            Navigation.findNavController(view).navigate(R.id.action_loginUserFragment_to_findChannelFragment);
+                            Navigation.findNavController(view).navigate(R.id.action_loginUserFragment_to_memberChannelListFragment);
                         }
 
                         @Override

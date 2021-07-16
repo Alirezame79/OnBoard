@@ -49,6 +49,9 @@
             app:enterAnim="@anim/right_enter_window"
             app:exitAnim="@anim/stay_anim"
             app:popExitAnim="@anim/right_exit_window" />
+        <action
+            android:id="@+id/action_loginUserFragment_to_memberChannelListFragment"
+            app:destination="@id/memberChannelListFragment" />
     </fragment>
     <fragment
         android:id="@+id/findChannelFragment"
@@ -123,6 +126,19 @@
         android:label="MemberChannelListFragment" >
         <action
             android:id="@+id/action_memberChannelListFragment_to_memberChannelPageFragment"
-            app:destination="@id/memberChannelPageFragment" />
+            app:destination="@id/memberChannelPageFragment"
+            app:enterAnim="@anim/middle_enter_anim"
+            app:exitAnim="@anim/stay_anim"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_memberChannelListFragment_to_joinChannelMemberFragment"
+            app:destination="@id/joinChannelMemberFragment"
+            app:enterAnim="@anim/right_enter_window"
+            app:exitAnim="@anim/stay_anim"
+            app:popExitAnim="@anim/right_exit_window" />
     </fragment>
+    <fragment
+        android:id="@+id/joinChannelMemberFragment"
+        android:name="com.method.speaker.View.JoinChannelMemberFragment"
+        android:label="JoinChannelMemberFragment" />
 </navigation>

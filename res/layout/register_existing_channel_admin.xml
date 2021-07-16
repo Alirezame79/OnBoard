@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/first_name"
-                android:textSize="7pt"
+                android:textSize="6pt"
                 android:backgroundTint="@color/palette_white"
                 android:textColorHint="@color/palette_gray"
                 android:textColor="@color/palette_white"/>
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/last_name"
-                android:textSize="7pt"
+                android:textSize="6pt"
                 android:backgroundTint="@color/palette_white"
                 android:textColorHint="@color/palette_gray"
                 android:textColor="@color/palette_white"/>

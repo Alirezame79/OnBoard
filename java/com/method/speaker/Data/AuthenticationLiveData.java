@@ -2,6 +2,8 @@ package com.method.speaker.Data;
 
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+
 public class AuthenticationLiveData extends ViewModel {
 
     // member side
@@ -9,6 +11,7 @@ public class AuthenticationLiveData extends ViewModel {
     public static String username;
     public static String password;
     public static String channel;
+    public static ArrayList<String> channelList;
 
     public static boolean isMember() {
         return member;
@@ -33,6 +36,12 @@ public class AuthenticationLiveData extends ViewModel {
     }
     public static void setChannel(String channel) {
         AuthenticationLiveData.channel = channel;
+    }
+    public static ArrayList<String> getChannelList() {
+        return channelList;
+    }
+    public static void setChannelList(ArrayList<String> channelList) {
+        AuthenticationLiveData.channelList = channelList;
     }
 
 
